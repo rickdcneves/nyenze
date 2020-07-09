@@ -60,7 +60,7 @@ class ClassRender {
     
     public function addMain(){
         if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Main.php")){
-            include 'app/view/admin/{$this->getDir()}/Header.php';
+            include DIRREQ."app/view/admin/{$this->getDir()}/Main.php";
         }       
     }    
     
