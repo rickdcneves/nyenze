@@ -101,7 +101,18 @@
   <!-- Page level custom scripts -->
   <script src="<?php echo DIRJS."demo/chart-area-demo.js"?>"></script>
   <script src="<?php echo DIRJS."demo/chart-pie-demo.js"?>"></script>
+    <script type="text/javascript">
 
+        function PreviewImage() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("uploadPreview").src = oFREvent.target.result;
+            };
+        };
+
+    </script>
 </body>
 
 </html>

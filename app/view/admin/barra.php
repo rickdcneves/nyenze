@@ -33,7 +33,7 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Informações:</h6>
-      <a class="collapse-item" href="form.php">Adicionar</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."artista/add/"?>">Adicionar</a>
       <a class="collapse-item" href="buttons.html">Listar</a>
       <a class="collapse-item" href="formContactos.php">Adicionar Contactos</a>
     </div>
@@ -49,7 +49,7 @@
   <div id="collapseBibliografia" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Obras:</h6>
-      <a class="collapse-item" href="formBibliografia.php">Adicionar</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar</a>
       <a class="collapse-item" href="utilities-border.html">Listar</a>
       <a class="collapse-item" href="formAddArea.php">Adicionar Tipo</a>
       <a class="collapse-item" href="formAddArea.php">Adicionar SubTipo</a>
