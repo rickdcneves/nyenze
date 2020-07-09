@@ -13,6 +13,8 @@ if(substr($_SERVER['DOCUMENT_ROOT'],-1)=='/'){
 define('DIRIMG',DIRPAGE."public/img/");
 define('DIRCSS',DIRPAGE."public/css/");
 define('DIRJS',DIRPAGE."public/js/");
+define('DIRVENDOR',DIRPAGE."src/vendor/");
+
 
 #acesso a Base de Dados
 
