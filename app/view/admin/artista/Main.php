@@ -24,7 +24,7 @@
                 <div class="col-sm-12 mb-3 ">
                     <fieldset>
                         <legend>Data de Nascimento:</legend>
-                            <input type="date" class="form-control" id="exampleFirstName" name="dnasc" required>
+                        <input type="date" class="form-control" id="exampleFirstName" name="dnasc" required>
                     </fieldset>
                 </div>
                 
@@ -33,7 +33,7 @@
                     <input type="text" class="form-control" id="exampleInputPassword" value="AO06" disabled>
                 </div>
                 <div class="col-sm-9">
-                    <input max="999999999999999999999" maxlength="21" minlength="21" type="number" class="form-control" id="exampleRepeatPassword" placeholder="IBAM" name="ibam" required>
+                    <input  minlength="21" type="number" class="form-control" id="exampleRepeatPassword" placeholder="IBAM" name="ibam" required>
                 </div>
                 <div class="col-sm-12 mb-3 ">
                     <textarea type="text" name="sobre" class="form-control" id="exampleInputEmail" placeholder="Sobre"></textarea>
@@ -61,14 +61,34 @@
                         <legend>Morada:</legend>
                             <div class="col-sm-12 mb-3">
                                 <select name="provincia" class="form-control" id="name">
-                                    <option value="1">Luanda</option>
-                                    <option value="2">Cabinda</option>
+                                    <?php
+                                        require_once DIRREQ."app/controller/ControllerProvincia.php";
+                                        $dados= new \App\Controller\ControllerProvincia();
+                                        $data=$dados->allProvincias();
+                                        foreach ($data as $row) {
+
+                                            echo "<option value=".$row['id'].">".$row['provincia']."</option>";
+
+                                        }
+                                        
+                                    ?>
                                 </select>
                             </div>
-                            <div class="col-sm-12">
-                                 <select name="municipio" class="form-control" id="name">
-                                    <option value="1">Cacongo</option>
-                                    <option value="2">Cacuaco</option>
+                            <div class='col-sm-12'>
+                                <select name="municipio" class="form-control" id="name">
+                                    <?php
+
+                                        
+                                        require_once DIRREQ."app/controller/ControllerMorada.php";
+                                        $dados1= new \App\Controller\ControllerMorada();
+                                        $data1=$dados1->allmorada();                                   
+                                        foreach ($data1 as $row1) {
+                                           echo "<option value=".$row1['id'].">".$row1['municipio']."</option>" ;
+
+                                        }
+
+                                    ?>
+                            
                                 </select>
                             </div>
                     </fieldset>

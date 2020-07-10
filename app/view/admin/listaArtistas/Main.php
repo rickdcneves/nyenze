@@ -37,23 +37,23 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
+                    
                         <?php
                             require_once DIRREQ."app/controller/ControllerArtista.php";
                             $dados= new \App\Controller\ControllerArtista();
                             $data=$dados->allArtistas();
                             foreach ($data as $row) {
-                                echo "<td>".$row['nome']."</td>";
+                                echo "<tr><td>".$row['nome']."</td>";
                                 echo "<td>".$row['sobre']."</td>";
                                 echo "<td>".$row['genero']."</td>";
                                 echo "<td>".$row['dnasc']."</td>";
                                 echo "<td>".$row['contacto']."</td>";
                                 echo "<td>".$row['ibam']."</td>";
                                 echo "<td>".$row['municipio']."</td>";
-                                echo "<td>".$row['provincia']."</td>";
+                                echo "<td>".$row['provincia']."</td></tr>";
                             }
                         ?>
-                    </tr>
+                    
                     
                   </tbody>
                 </table>
