@@ -18,7 +18,7 @@ define('DIRVENDOR',DIRPAGE."src/vendor/");
 
 #acesso a Base de Dados
 
-define('HOST', "LOCALHOST");
-define('DB', "diana");
+define('HOST', "localhost");
+define('DB', "nyenze");
 define('USER', "root");
 define('PASS', "");
