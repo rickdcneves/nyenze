@@ -31,6 +31,15 @@ class ControllerArtista extends ClassCadastroArtista{
         $render->renderLayout();
     }
     
+    public function all(){
+        $render=new ClassRender();
+        $render->setTitle("Lista de Artistas");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("listaArtistas");
+        $render->renderLayout();
+    }
+    
     public function recVariaveis(){
         if(isset($_POST['nome'])){
             $this->nome= filter_input(INPUT_POST, 'nome');
@@ -87,4 +96,6 @@ class ControllerArtista extends ClassCadastroArtista{
     public function ultimo(){
         return parent::lastUser();
     }
+    
+
 }

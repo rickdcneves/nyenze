@@ -44,17 +44,17 @@
                 </div>
 
                 <div class="col-sm-6 mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Palavra-Passe" name="pass" required>
+                    <input type="password" minlength="8" class="form-control" id="password" placeholder="Palavra-Passe" name="pass" required>
                 </div>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="confirm_password" placeholder="Confirmação da Palavra-Passe" name="passconf" required>
+                    <input type="password" minlength="8" class="form-control" id="confirm_password" placeholder="Confirmação da Palavra-Passe" name="passconf" required>
                 </div>
 
                 <div class="col-sm-3 mb-3">
                     <input type="text" class="form-control" id="exampleInputPassword" value="+244" disabled>
                 </div>
                 <div class="col-sm-9">
-                    <input max="999999999" maxlength="9" minlength="9" type="number" class="form-control" id="exampleRepeatPassword" placeholder="Número de Telefone" name="numero" required>
+                    <input max="999999999" minlength="9" type="number" class="form-control" id="exampleRepeatPassword" placeholder="Número de Telefone" name="numero" required>
                 </div>                      
                 <div class="col-sm-12 mb-3 ">
                     <fieldset>

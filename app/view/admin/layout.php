@@ -19,6 +19,7 @@
 
   <!-- Custom styles for this template-->
   <link  rel="stylesheet"href="<?php echo DIRCSS."sb-admin-2.min.css" ?>">
+  <link href="<?php echo DIRVENDOR."datatables/dataTables.bootstrap4.min.css"?>" rel="stylesheet">
 
 </head>
 
@@ -101,6 +102,10 @@
   <!-- Page level custom scripts -->
   <script src="<?php echo DIRJS."demo/chart-area-demo.js"?>"></script>
   <script src="<?php echo DIRJS."demo/chart-pie-demo.js"?>"></script>
+  
+    <script src="<?php echo DIRVENDOR."datatables/jquery.dataTables.min.js"?>"></script>
+  <script src="<?php echo DIRVENDOR."datatables/dataTables.bootstrap4.min.js"?>"></script>
+   <script src="<?php echo DIRJS."demo/datatables-demo.js"?>"></script>
     <script type="text/javascript">
 
         function PreviewImage() {
