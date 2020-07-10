@@ -4,7 +4,7 @@ namespace App\Controller;
 use Src\Classes\ClassRender;
 use Src\Interfaces\interfaceView;
 use App\Model\ClassCadastroArtista;
-use App\Model\ClassUser;
+use App\Model\ClassContacto;
 
 class ControllerArtista extends ClassCadastroArtista{
     
@@ -19,6 +19,7 @@ class ControllerArtista extends ClassCadastroArtista{
     protected $sobre;
     protected $numero;
     protected $id_municipio;
+    protected $email;
 
 
     public function add(){
@@ -71,7 +72,6 @@ class ControllerArtista extends ClassCadastroArtista{
         if(isset($_POST['email'])){
             $this->email= filter_input(INPUT_POST, 'email');
         }
-        //echo $this->dnasc."\n".$this->pass."\n".$this->tipo."\n".$this->id_morada."\n".$this->id_municipio."\n".$this->descricaolocalizacao."\n".$this->genero;
     }
 
     public function cadastrar(){
@@ -79,8 +79,9 @@ class ControllerArtista extends ClassCadastroArtista{
 
         parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_municipio, $this->descricaolocalizacao, $this->genero);
         parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
-        
-               
+        $a=new ClassContacto();
+        $a->cadastroContacto("email", $this->email,self::ultimo());
+        $a->cadastroContacto("telefone", $this->numero,self::ultimo());
     }
     
     public function ultimo(){

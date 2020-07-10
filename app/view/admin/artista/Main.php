@@ -44,10 +44,10 @@
                 </div>
 
                 <div class="col-sm-6 mb-3">
-                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Palavra-Passe" name="pass" required>
+                    <input type="password" class="form-control" id="inputSenha" placeholder="Palavra-Passe" name="pass" required>
                 </div>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="exampleRepeatPassword" placeholder="Confirmação da Palavra-Passe" name="passconf" required>
+                    <input type="password" class="form-control" id="inputSenha2" placeholder="Confirmação da Palavra-Passe" name="passconf" required>
                 </div>
 
                 <div class="col-sm-3 mb-3">
@@ -90,3 +90,16 @@
 
     </div>
     <!-- End of Main Content -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $(function(){
+	$("#inputSubmit").click(function(){
+      var senha = $("#inputSenha").val();
+      var senha2 = $("#inputSenha2").val();
+      if(senha != senha2){
+        event.preventDefault();
+      	alert("As senhas não são iguais!");
+      }
+    });
+  });
+</script>

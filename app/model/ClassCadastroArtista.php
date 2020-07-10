@@ -15,6 +15,7 @@ class ClassCadastroArtista extends ClassUser {
     private $db;
     protected function cadastroArtista($sobre,$ibam,$id_user){
         $this->db= $this->conexaoDB()->prepare("insert into artista (sobre,ibam,id_user) values(:sobre,:ibam,:id_user)");
+
         $this->db->bindParam(":sobre", $sobre);
         $this->db->bindParam(":ibam", $ibam);
         $this->db->bindParam(":id_user", $id_user);   
