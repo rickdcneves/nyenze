@@ -8,7 +8,7 @@
           <div class="text-center">
             <h1 class="h4 text-gray-900 mb-4">Cadastrar Artista</h1>
           </div>
-            <form class="user" method="post" action="<?php echo DIRPAGE."artista/cadastrar"?>">
+            <form class="pure-form" method="post" action="<?php echo DIRPAGE."artista/cadastrar"?>">
             <div class="form-group row">
                 <div class="col-sm-12 mb-3">
                     <input type="text" class="form-control" id="exampleFirstName" name="nome" placeholder="Nome Completo" required>
@@ -44,10 +44,10 @@
                 </div>
 
                 <div class="col-sm-6 mb-3">
-                    <input type="password" class="form-control" id="inputSenha" placeholder="Palavra-Passe" name="pass" required>
+                    <input type="password" class="form-control" id="password" placeholder="Palavra-Passe" name="pass" required>
                 </div>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="inputSenha2" placeholder="Confirmação da Palavra-Passe" name="passconf" required>
+                    <input type="password" class="form-control" id="confirm_password" placeholder="Confirmação da Palavra-Passe" name="passconf" required>
                 </div>
 
                 <div class="col-sm-3 mb-3">
@@ -90,16 +90,18 @@
 
     </div>
     <!-- End of Main Content -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-  $(function(){
-	$("#inputSubmit").click(function(){
-      var senha = $("#inputSenha").val();
-      var senha2 = $("#inputSenha2").val();
-      if(senha != senha2){
-        event.preventDefault();
-      	alert("As senhas não são iguais!");
-      }
-    });
-  });
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Senhas diferentes!");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
 </script>
