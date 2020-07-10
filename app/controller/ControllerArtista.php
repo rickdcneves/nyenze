@@ -76,10 +76,14 @@ class ControllerArtista extends ClassCadastroArtista{
 
     public function cadastrar(){
         $this->recVariaveis();
-       // exit();
-        parent::cadastroUser($this->nome, $this->dnasc,$this->pass,$this->tipo, $this->id_morada, $this->id_municipio, $this->descricaolocalizacao, $this->genero);
-       // parent::cadastroArtista($this->sobre, $this->ibam, 2);
+
+        parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_municipio, $this->descricaolocalizacao, $this->genero);
+        parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
         
                
+    }
+    
+    public function ultimo(){
+        return parent::lastUser();
     }
 }

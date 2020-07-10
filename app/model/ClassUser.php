@@ -22,8 +22,16 @@ class ClassUser extends ClassConexao {
        $this->db->bindParam(":idmunicipio",$idmunicipio);
        $this->db->bindParam(":descricaolocalizacao",$descricaolocalizacao);
        //var_dump($this->db);
-       var_dump($this->db->execute());
+       $this->db->execute();
        
+    }
+    
+    protected function lastUser(){
+        $data = $this->db=$this->conexaoDB()->query("SELECT max(id) as ultimo FROM user")->fetchAll();
+    
+        foreach ($data as $row) {
+            return $row['ultimo'];
+        }
     }
    
 }
