@@ -34,7 +34,7 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Informações:</h6>
       <a class="collapse-item" href="<?php echo DIRPAGE."artista/add/"?>">Adicionar</a>
-      <a class="collapse-item" href="buttons.html">Listar</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."artista/all/"?>">Listar</a>
       <a class="collapse-item" href="formContactos.php">Adicionar Contactos</a>
     </div>
   </div>

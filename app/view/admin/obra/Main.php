@@ -11,11 +11,11 @@
       <div class="text-center">
         <h1 class="h4 text-gray-900 mb-4">Publicar Obra</h1>
       </div>
-      <form class="user">
+        <form class="user" enctype="multipart/form-data" method="post" action="<?php echo DIRPAGE."obra/registarObra"?>">
           <div class="form-group row">
             <div class="col-sm-12 mb-3">
               <img id="uploadPreview" style="margin-left:35% ;width: 30%; height: 200px;" />
-            <input value="Selecione Uma Foto" id="uploadImage" type="file" name="myPhoto"  style="margin-left:35%" onchange="PreviewImage();" />
+            <input value="Selecione Uma Foto" id="uploadImage" type="file" name="foto"  style="margin-left:35%" onchange="PreviewImage();" />
             </div>
             
         <div class="col-sm-12 mb-3">
@@ -33,7 +33,7 @@
         </div>          
           
         <div class="col-sm-12 mb-3 ">
-          <textarea class="form-control" id="exampleInputEmail" placeholder="Descrição" required></textarea>
+            <textarea class="form-control" id="exampleInputEmail" placeholder="Descrição" name="descricao" required></textarea>
         </div>
 
         <div class="col-sm-12 mb-3">
@@ -42,17 +42,11 @@
                 <option value="F">Tipo 2</option>
             </select>
         </div> 
-        <div class="col-sm-12 mb-3">
-            <select name="subtipo" class="form-control" id="name" required>
-                <option value="M">SubTipo 1</option>
-                <option value="F">SubTipo 2</option>
-            </select>
-        </div>
 
         <div class="col-sm-12 mb-3">
             <select name="artista" class="form-control" id="name" required>
                 <option value="M">Artista</option>
-                <option value="F">SubTipo 2</option>
+                <option value="F">Artista 2</option>
             </select>
         </div>
 
@@ -61,7 +55,7 @@
         </div>
 
         <div class="col-sm-6 mb-3">
-            <input max="999999999999999999999" min="1" type="number" class="form-control" id="exampleRepeatPassword" placeholder="Preço" nome="Preço" required>
+            <input max="999999999999999999999" min="1" type="number" class="form-control" id="exampleRepeatPassword" placeholder="Preço" name="preco" required>
         </div>  
             
 
