@@ -27,7 +27,7 @@ class ClassObra extends ClassConexao{
     }
     
     public function allObras(){
-        $data = $this->db=$this->conexaoDB()->query("SELECT artista.*, user.*, morada.*,provincia.*,contacto.* FROM artista,user,morada,contacto,provincia where user.id=artista.id_user and contacto.id_user=user.id and user.id_morada=morada.id and user.id_provincia=provincia.id and contacto.tipo='email'")->fetchAll();
+        $data = $this->db=$this->conexaoDB()->query("SELECT obra.*, categoria.nome as catname, artista.*,user.nome as usname FROM obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id")->fetchAll();
         return $data;       
     }
 

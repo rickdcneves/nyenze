@@ -11,7 +11,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-  <a class="nav-link" href="index.php">
+  <a class="nav-link" href="<?php echo DIRPAGE."home/"?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -50,7 +50,7 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Obras:</h6>
       <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar</a>
-      <a class="collapse-item" href="utilities-border.html">Listar</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar</a>
       <a class="collapse-item" href="formAddArea.php">Adicionar Tipo</a>
       <a class="collapse-item" href="formAddArea.php">Adicionar SubTipo</a>
     </div>

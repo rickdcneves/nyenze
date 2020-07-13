@@ -40,6 +40,15 @@ class ControllerObra extends ClassObra {
         $render->setDir("obra");
         $render->renderLayout();
     }
+
+    public function all(){
+        $render=new ClassRender();
+        $render->setTitle("Lista de Obras");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("listaObras");
+        $render->renderLayout();
+    }
     
     public function recVariaveis(){
         if(isset($_FILES['foto'])){
@@ -78,7 +87,6 @@ class ControllerObra extends ClassObra {
         if(isset($_POST['largura'])){
             $this->largura= filter_input(INPUT_POST, 'largura');
         }
-        //echo $this->foto['name']."---".$this->nome."---".$this->entrega."---".$this->descricao."---".$this->tipo."---".$this->artista."---".$this->qtd."---".$this->preco."---".$this->altura."---".$this->largura;
     }
      
     public function registarObra(){
@@ -90,8 +98,8 @@ class ControllerObra extends ClassObra {
         header("location:/nyenze/obra/all");
     }
     
+    public function todasObras(){
+        return parent::allObras();
+    }
     
-    /*empty($_FILES['foto']))){
-                $upload = new Upload($_FILES['foto'], 1000, 800, "fotos/");
-                    echo $upload->salvar();*/
 }
