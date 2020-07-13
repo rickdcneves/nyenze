@@ -2,17 +2,25 @@
 
 namespace App\Model;
 
+use App\Model\ClassConexao;
 
-
-class ClassObra {
+class ClassObra extends ClassConexao{
     private $db;
-    protected function cadastroObra($sobre,$ibam,$id_user){
+    protected function cadastroObra($foto,$descricao,$preco,$estado,$qtd,$titulo,$entrega,$altura,$largura,$id_categoria,$data_publicacao,$id_artista){
 
-        $this->db= $this->conexaoDB()->prepare("insert into artista (sobre,ibam,id_user) values(:sobre,:ibam,:id_user)");
-
-        $this->db->bindParam(":sobre", $sobre);
-        $this->db->bindParam(":ibam", $ibam);
-        $this->db->bindParam(":id_user", $id_user);   
+        $this->db= $this->conexaoDB()->prepare("insert into obra (foto,descricao,preco,estado,qtd,titulo,entrega,altura,largura,id_categoria,data_publicacao,id_artista) values(:foto,:descricao,:preco,:estado,:qtd,:titulo,:entrega,:altura,:largura,:id_categoria,:data_publicacao,:id_artista)");
+        $this->db->bindParam(":foto", $foto);
+        $this->db->bindParam(":descricao", $descricao);
+        $this->db->bindParam(":preco", $preco);
+        $this->db->bindParam(":estado", $estado);
+        $this->db->bindParam(":qtd", $qtd);
+        $this->db->bindParam(":titulo", $titulo);
+        $this->db->bindParam(":entrega", $entrega);
+        $this->db->bindParam(":altura", $altura);
+        $this->db->bindParam(":largura", $largura);
+        $this->db->bindParam(":id_categoria", $id_categoria);
+        $this->db->bindParam(":data_publicacao", $data_publicacao);
+        $this->db->bindParam(":id_artista", $id_artista);        
         $this->db->execute();
 
         

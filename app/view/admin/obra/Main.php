@@ -37,16 +37,34 @@
         </div>
 
         <div class="col-sm-12 mb-3">
-            <select name="tipo" class="form-control" id="name" required>
-                <option value="M">Tipo 1</option>
-                <option value="F">Tipo 2</option>
+            <select name="id_categoria" class="form-control" id="name" required>
+                <?php
+                    require_once DIRREQ."app/controller/ControllerCategoria.php";
+                    $dados= new \App\Controller\ControllerCategoria();
+                    $data=$dados->todasCategorias();
+                    foreach ($data as $row) {
+
+                        echo "<option value=".$row['id'].">".$row['nome']."</option>";
+
+                    }
+
+                ?>
             </select>
         </div> 
 
         <div class="col-sm-12 mb-3">
-            <select name="artista" class="form-control" id="name" required>
-                <option value="M">Artista</option>
-                <option value="F">Artista 2</option>
+            <select name="id_artista" class="form-control" id="name" required>
+                <?php
+                    require_once DIRREQ."app/controller/ControllerArtista.php";
+                    $dados= new \App\Controller\ControllerArtista();
+                    $data=$dados->allArtistas();
+                    foreach ($data as $row) {
+
+                        echo "<option value=".$row['id'].">".$row['nome']."</option>";
+
+                    }
+
+                ?>
             </select>
         </div>
 
@@ -64,7 +82,7 @@
         </div>
 
         <div class="col-sm-6">
-            <input  min="1" type="number" class="form-control" id="exampleRepeatPassword" placeholder="Largura" name="larguta" required>
+            <input  min="1" type="number" class="form-control" id="exampleRepeatPassword" placeholder="Largura" name="largura" required>
         </div>            
             
 </div>  

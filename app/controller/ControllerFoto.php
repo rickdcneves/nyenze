@@ -3,14 +3,13 @@
  
     class Upload{
         private $arquivo;
-        private $altura;
-        private $largura;
+        private $altura=1000;
+        private $largura=800;
         private $pasta;
  
-        function __construct($arquivo, $altura, $largura, $pasta){
+        function __construct($arquivo, $pasta){
             $this->arquivo = $arquivo;
-            $this->altura  = $altura;
-            $this->largura = $largura;
+
             $this->pasta   = $pasta;
         }
          
@@ -93,9 +92,7 @@
                     $this->redimensionar($largura, $altura, $tipo, $destino);
                 }
             }
-            return "Sucesso";
+            return $novo_nome;
         }                       
     }
 ?>
-
-

@@ -26,8 +26,12 @@ class ControllerObra extends ClassObra {
     protected $preco;
     protected $altura;
     protected $larguta;
+    protected $estado=1;
+    protected $id_artista;
+    protected $id_categoria;
+    protected $data_publicacao;
 
-    
+
     public function add(){
         $render=new ClassRender();
         $render->setTitle("Adicionar Obra");
@@ -41,6 +45,12 @@ class ControllerObra extends ClassObra {
         if(isset($_FILES['foto'])){
             $this->foto= $_FILES['foto'];
         } 
+        if(isset($_POST['id_artista'])){
+            $this->id_artista= filter_input(INPUT_POST, 'id_artista');
+        }
+        if(isset($_POST['id_categoria'])){
+            $this->id_categoria= filter_input(INPUT_POST, 'id_categoria');
+        }
         if(isset($_POST['nome'])){
             $this->nome= filter_input(INPUT_POST, 'nome');
         }
@@ -65,23 +75,19 @@ class ControllerObra extends ClassObra {
         if(isset($_POST['altura'])){
             $this->altura= filter_input(INPUT_POST, 'altura');
         }        
-        if(isset($_POST['larguta'])){
-            $this->larguta= filter_input(INPUT_POST, 'larguta');
-        }        
+        if(isset($_POST['largura'])){
+            $this->largura= filter_input(INPUT_POST, 'largura');
+        }
+        //echo $this->foto['name']."---".$this->nome."---".$this->entrega."---".$this->descricao."---".$this->tipo."---".$this->artista."---".$this->qtd."---".$this->preco."---".$this->altura."---".$this->largura;
     }
      
     public function registarObra(){
         include "ControllerFoto.php";
         $this->recVariaveis();
-        $upload = new Upload($_FILES['foto'], 1000, 800, DIRREQ."public/img/");
-        $upload->salvar();
-        
-        /*parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
-        parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
-        $a=new ClassContacto();
-        $a->cadastroContacto("email", $this->email,self::ultimo());
-        $a->cadastroContacto("telefone", $this->numero,self::ultimo());
-        header("location:/nyenze/artista/all");*/
+        $upload = new Upload($_FILES['foto'],DIRREQ."public/img/");
+        $nomenovo=$upload->salvar();
+        parent::cadastroObra($nomenovo, $this->descricao, $this->preco, $this->estado, $this->qtd, $this->nome, $this->entrega, $this->altura, $this->largura, $this->id_categoria, date('d/M/y'), $this->id_artista);
+        header("location:/nyenze/obra/all");
     }
     
     
