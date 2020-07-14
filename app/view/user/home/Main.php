@@ -3,18 +3,22 @@
             <!-- ##### Single Widget ##### -->
             <div class="widget catagory mb-50">
                 <!-- Widget Title -->
-                <h6 class="widget-title mb-30">Catagories</h6>
+                <h6 class="widget-title mb-30">Catagorias</h6>
 
                 <!--  Catagories  -->
                 <div class="catagories-menu">
                     <ul>
-                        <li class="active"><a href="#">Chairs</a></li>
-                        <li><a href="#">Beds</a></li>
-                        <li><a href="#">Accesories</a></li>
-                        <li><a href="#">Furniture</a></li>
-                        <li><a href="#">Home Deco</a></li>
-                        <li><a href="#">Dressings</a></li>
-                        <li><a href="#">Tables</a></li>
+                        <?php
+                            require_once DIRREQ."app/controller/ControllerCategoria.php";
+                            $dados= new \App\Controller\ControllerCategoria();
+                            $data=$dados->todasCategorias();
+                            foreach ($data as $row) {
+
+                                echo "<li><a href=".$row['id'].">".$row['nome']."</a></li>";
+
+                            }
+
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -50,15 +54,20 @@
 
 
                 <div class="row">
-
+                    <?php
+                        require_once DIRREQ."app/controller/ControllerObra.php";
+                        $dados= new \App\Controller\ControllerObra();
+                        $data=$dados->todasObras();
+                        foreach ($data as $row):
+                    ?>
                     <!-- Single Product Area -->
                     <div class="col-12 col-sm-6 col-md-12 col-xl-6">
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="img/product-img/product1.jpg" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">
+                                <img src="<?php echo DIRPAGE."public/img/".$row['foto'];  ?>" alt="">
+                                <!-- Hover Thumb 
+                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">-->
                             </div>
 
                             <!-- Product Description -->
@@ -66,9 +75,9 @@
                                 <!-- Product Meta Data -->
                                 <div class="product-meta-data">
                                     <div class="line"></div>
-                                    <p class="product-price">$180</p>
-                                    <a href="product-details.html">
-                                        <h6>Modern Chair</h6>
+                                    <p class="product-price"><?php echo $row['preco']." Kzs";?></p>
+                                    <a href="<?php echo $row['id'];?>">
+                                        <h6><?php echo $row['titulo'];?></h6>
                                     </a>
                                 </div>
                                 <!-- Ratings & Cart -->
@@ -87,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <?php endforeach;?>
                 </div>
 
                 
