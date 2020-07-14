@@ -7,11 +7,11 @@ use Src\Interfaces\interfaceView;
 class ControllerHome extends ClassRender implements interfaceView{
     
     public function __construct() {
-        $this->setTitle("Home");
+        $this->setTitle("Shop");
         $this->setDescription("Pagina Inicial");
         $this->setKeywords("Produzida para artistas");
         $this->setDir("home");
-        $this->renderLayout();
+        $this->renderLayoutUser();
         
     }
 }

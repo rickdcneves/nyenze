@@ -69,5 +69,33 @@ class ClassRender {
             include 'app/view/admin/{$this->getDir()}/Header.php';
         }        
     }
+
+    public function renderLayoutUser(){
+        include (DIRREQ."app/view/user/layout.php");   
+    }
+    
+    public function addHeaderUser(){
+        if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Header.php")){
+            include 'app/view/user/{$this->getDir()}/Header.php';
+        }
+    }    
+
+    public function addMenuUser(){
+        if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Menu.php")){
+            include 'app/view/user/{$this->getDir()}/Menu.php';
+        }       
+    }     
+    
+    public function addMainUser(){
+        if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Main.php")){
+            include DIRREQ."app/view/user/{$this->getDir()}/Main.php";
+        }       
+    }    
+    
+    public function addFooterUser(){
+        if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Footer.php")){
+            include 'app/view/user/{$this->getDir()}/Header.php';
+        }        
+    }
     
 }
