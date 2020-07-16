@@ -52,11 +52,10 @@ class ClassRender {
         }
     }    
 
-    public function addMenu(){
-        if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Menu.php")){
-            include 'app/view/admin/{$this->getDir()}/Menu.php';
-        }       
-    }     
+    public function login(){
+        include (DIRREQ."app/view/login.php");     
+    }  
+   
     
     public function addMain(){
         if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Main.php")){

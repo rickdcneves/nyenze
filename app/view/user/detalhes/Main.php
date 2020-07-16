@@ -75,4 +75,3 @@
             </div>
         </div>
     </div>
-    <!-- Product Details Area End -->

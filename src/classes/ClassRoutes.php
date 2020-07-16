@@ -16,7 +16,7 @@ class ClassRoutes{
         $this->Rota=array(
             "" => "ControllerHome",
             "homepage" => "ControllerHome",
-            
+            "login" => "ControllerLogin",           
             "sitemap" => "ControllerSiteMap",
             "404" => "Controller404",
             "artista" => "ControllerArtista",

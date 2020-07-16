@@ -35,7 +35,7 @@
                         <form action="#" method="get">
                             <input type="search" name="search" id="search" placeholder="Pesquisar...">
                             
-                            <button type="submit"><img src="<?php echo DIRIMG."core-img/search.png"; ?>" alt=""></button>
+                            <button type="submit"><img src="https://img.icons8.com/pastel-glyph/20/000000/search--v1.png"/></button>
                         </form>
                     </div>
                 </div>
@@ -79,7 +79,9 @@
             <hr>    
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a href="#" class="search-nav"><img src="<?php echo DIRIMG."core-img/search.png"; ?>" alt=""> Pesquisar</a>
+                <a href="#" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/20/000000/search--v1.png"/>Pesquisar</a>
+     
+                <a href="<?php echo DIRPAGE."login/entrar"?>" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/16/000000/login-rounded-right.png"/> Login</a>
             </div>
             <!-- Social Button -->
             <div class="social-info d-flex justify-content-between">
