@@ -45,11 +45,13 @@ class Dispatch extends ClassRoutes{
     
     //metodo de adicão de metodos a controllers
     private function addMethod(){
+        if(!empty($this->parseUrl()[1])){
         if(method_exists($this->Obj, $this->parseUrl()[1])){
+                        
             $this->setMethod("{$this->parseUrl()[1]}");
             self::addParam();
             call_user_func_array([$this->Obj, $this->getMethod()], $this->getParam());
-        }
+        }}
     }
     
     //metodo de adição de parametros

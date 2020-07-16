@@ -6,7 +6,7 @@ use Src\Interfaces\interfaceView;
 
 class ControllerHome extends ClassRender implements interfaceView{
     
-    public function __construct() {
+    public function obracat() {
         $this->setTitle("Shop");
         $this->setDescription("Pagina Inicial");
         $this->setKeywords("Produzida para artistas");
@@ -14,4 +14,20 @@ class ControllerHome extends ClassRender implements interfaceView{
         $this->renderLayoutUser();
         
     }
+    public function obras() {
+        $this->setTitle("Shop");
+        $this->setDescription("Pagina Inicial");
+        $this->setKeywords("Produzida para artistas");
+        $this->setDir("obra");
+        $this->renderLayoutUser();
+        
+    }
+    public function dashboard() {
+        $this->setTitle("home");
+        $this->setDescription("Pagina Inicial");
+        $this->setKeywords("Produzida para artistas");
+        $this->setDir("home");
+        $this->renderLayout();
+        
+    }    
 }

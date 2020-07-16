@@ -27,9 +27,12 @@ class ClassObra extends ClassConexao{
     }
     
     public function allObras(){
-        $data = $this->db=$this->conexaoDB()->query("SELECT obra.*, categoria.nome as catname, artista.*,user.nome as usname FROM obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id")->fetchAll();
+        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.*,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id")->fetchAll();
         return $data;       
     }
-
+    public function SelectObras($categoria){
+        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.*,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and categoria.id=".$categoria)->fetchAll();
+        return $data;       
+    }
     
 }

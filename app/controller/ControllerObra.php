@@ -102,4 +102,8 @@ class ControllerObra extends ClassObra {
         return parent::allObras();
     }
     
+    public function isObras($categoria){
+        return parent::SelectObras($categoria);
+    }
+    
 }

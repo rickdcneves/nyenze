@@ -55,11 +55,11 @@
 
                 <div class="row">
                     <?php
-                        $categiria= base64_decode($_GET['cat']);
+                        //$categiria= base64_decode($_GET['cat']);
                         
                         require_once DIRREQ."app/controller/ControllerObra.php";
                         $dados= new \App\Controller\ControllerObra();
-                        $data=$dados->SelectObras($categiria);
+                        $data=$dados->todasObras();
                         foreach ($data as $row):
                     ?>
                     <!-- Single Product Area -->

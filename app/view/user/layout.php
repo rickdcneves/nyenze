@@ -52,7 +52,7 @@
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
                 
-                <a href="index.html"><img src="<?php echo DIRIMG."core-img/logo.png"; ?>" alt=""></a>
+                <a href="<?php echo DIRPAGE."homepage/obras/";?>"><img src="<?php echo DIRIMG."core-img/logo.png"; ?>" alt=""></a>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -68,7 +68,7 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html"><img src="<?php echo DIRIMG."core-img/logo.png"; ?>" alt=""></a>
+                <a href="<?php echo DIRPAGE."homepage/obras/";?>"><img src="<?php echo DIRIMG."core-img/logo.png"; ?>" alt=""></a>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
