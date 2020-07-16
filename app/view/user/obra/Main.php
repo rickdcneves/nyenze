@@ -78,7 +78,7 @@
                                 <div class="product-meta-data">
                                     <div class="line"></div>
                                     <p class="product-price"><?php echo (($row['preco'])+($row['preco']*$row['def'])/100)." Kzs";?></p>
-                                    <a href="<?php echo $row['id'];?>">
+                                    <a href="<?php echo DIRPAGE."detalhes/obras?prod=".base64_encode($row['id']);?>">
                                         <h6><?php echo $row['titulo'];?></h6>
                                     </a>
                                 </div>

@@ -87,7 +87,7 @@ class ClassRender {
     }     
     
     public function addMainUser(){
-        if(file_exists(DIRREQ."app/view/admin/{$this->getDir()}/Main.php")){
+        if(file_exists(DIRREQ."app/view/user/{$this->getDir()}/Main.php")){
             include DIRREQ."app/view/user/{$this->getDir()}/Main.php";
         }       
     }    
