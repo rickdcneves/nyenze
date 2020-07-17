@@ -97,4 +97,12 @@ class ClassRender {
         }        
     }
     
+    
+    
+    public function renderLayoutCadastro(){
+        include (DIRREQ."app/view/user/cadastro/Main.php");   
+    }
+    
+    
+    
 }

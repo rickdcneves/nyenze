@@ -62,7 +62,7 @@
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>-->
                   <div class="text-center">
-                    <a class="small" href="register.html">Criar conta!</a>
+                    <a class="small" href="<?php echo DIRPAGE."conta"?>">Criar conta!</a>
                   </div>
                 </div>
               </div>
