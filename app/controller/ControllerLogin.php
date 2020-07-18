@@ -13,7 +13,7 @@ class ControllerLogin extends ClassObra{
         $render->setTitle("Login");
         $render->setDescription("Pagina Inicial");
         $render->setKeywords("Produzida para artistas");
-        $render->setDir("detalhes");
+        $render->setDir("login");
         $render->login();
         
     }

@@ -1,18 +1,17 @@
 <?php
-
 namespace App\Controller;
 use Src\Classes\ClassRender;
 use Src\Interfaces\interfaceView;
-use App\Model\ClassCadastroArtista;
+use App\Model\ClassUser;
 use App\Model\ClassContacto;
 
-class ControllerConta extends ClassCadastroArtista{
+class ControllerUser extends ClassUser{
     
     protected $nome;
     protected $pass;
     protected $genero;
     protected $dnasc;
-    protected $tipo="artista";
+    protected $tipo;
     protected $id_morada;
     protected $descricaolocalizacao;
     protected $ibam;
@@ -24,21 +23,13 @@ class ControllerConta extends ClassCadastroArtista{
 
     public function __construct(){
         $render=new ClassRender();
-        $render->setTitle("Adicionar Artista");
+        $render->setTitle("Criar Conta");
         $render->setDescription("");
         $render->setKeywords("");
         $render->setDir("conta");
         $render->renderLayoutCadastro();
     }
     
-    public function all(){
-        $render=new ClassRender();
-        $render->setTitle("Lista de Artistas");
-        $render->setDescription("");
-        $render->setKeywords("");
-        $render->setDir("listaArtistas");
-        $render->renderLayout();
-    }
     
     public function recVariaveis(){
         if(isset($_POST['nome'])){
@@ -50,12 +41,10 @@ class ControllerConta extends ClassCadastroArtista{
         if(isset($_POST['dnasc'])){
             $this->dnasc= filter_input(INPUT_POST, 'dnasc');
         }
-        if(isset($_POST['sobre'])){
-            $this->sobre= filter_input(INPUT_POST, 'sobre');
+        if(isset($_POST['tipo'])){
+            $this->tipo= filter_input(INPUT_POST, 'tipo');
         }
-        if(isset($_POST['ibam'])){
-            $this->ibam= filter_input(INPUT_POST, 'ibam');
-        }        
+      
         if(isset($_POST['pass'])){
             $this->pass= filter_input(INPUT_POST, 'pass');
         }
@@ -83,20 +72,13 @@ class ControllerConta extends ClassCadastroArtista{
         }
     }
 
-    public function cadastrar(){
+    public function cadastrarUser(){
         $this->recVariaveis();
-
         parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
-        parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
-        $a=new ClassContacto();
-        $a->cadastroContacto("email", $this->email,self::ultimo());
-        $a->cadastroContacto("telefone", $this->numero,self::ultimo());
-        header("location:/nyenze/artista/all");
+        echo "<script>window.location.href='/nyenze/login/entrar'</script>";
     }
     
     public function ultimo(){
         return parent::lastUser();
     }
-    
-
 }

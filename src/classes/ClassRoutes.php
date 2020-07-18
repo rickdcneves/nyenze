@@ -23,7 +23,7 @@ class ClassRoutes{
             "obra" => "ControllerObra",
             "morada" => "ControllerMorada",
             "detalhes" => "ControllerDetalhes",
-            "conta" => "ControllerConta",
+            "conta" => "ControllerUser",
         );
         #Condição se a rota não existir
         if(array_key_exists($I, $this->Rota)){
