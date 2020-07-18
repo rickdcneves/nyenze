@@ -27,7 +27,7 @@ class ControllerConta extends ClassCadastroArtista{
         $render->setTitle("Adicionar Artista");
         $render->setDescription("");
         $render->setKeywords("");
-        $render->setDir("Cadastrar");
+        $render->setDir("conta");
         $render->renderLayoutCadastro();
     }
     
