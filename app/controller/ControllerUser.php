@@ -75,6 +75,9 @@ class ControllerUser extends ClassUser{
     public function cadastrarUser(){
         $this->recVariaveis();
         parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
+        $a=new ClassContacto();
+        $a->cadastroContacto("email", $this->email,self::ultimo());
+        $a->cadastroContacto("telefone", $this->numero,self::ultimo());
         echo "<script>window.location.href='/nyenze/login/entrar'</script>";
     }
     

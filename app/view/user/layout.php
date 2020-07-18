@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['login'])){
+        $log=$_SESSION['login'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-pt">
 
@@ -80,8 +86,11 @@
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
                 <a href="#" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/20/000000/search--v1.png"/>Pesquisar</a>
-     
-                <a href="<?php echo DIRPAGE."login/entrar"?>" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/16/000000/login-rounded-right.png"/> Login</a>
+                <?php if(!isset($log)):?>
+                    <a href="<?php echo DIRPAGE."login/entrar"?>" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/16/000000/login-rounded-right.png"/> Login</a>
+                <?php else:?>
+                    <a href="<?php echo DIRPAGE."login/sair"?>" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/16/000000/login-rounded-right.png"/> Logout</a>
+                <?php endif;?>
             </div>
             <!-- Social Button -->
             <div class="social-info d-flex justify-content-between">

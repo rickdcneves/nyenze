@@ -39,12 +39,12 @@
                   <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4"><img style="width: 100%" src="<?php echo DIRIMG."core-img/logo.png"?>"></h1>
                   </div>
-                  <form class="user">
+                    <form class="user" method="post" action="<?php echo DIRPAGE."login/verificar"; ?>">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email...">
+                        <input name="contacto" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email ou Telefone">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Palavra-Passe">
+                        <input name="pass" minlength="8" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Palavra-Passe">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -52,9 +52,9 @@
                         <label class="custom-control-label" for="customCheck">Lembrar de Mim</label>
                       </div>
                     </div>
-                      <a href="index.html" style="  background: #fff952" class="btn  btn-user btn-block">
-                      Login
-                    </a>
+                        <input type="submit" value="Login" style="  background: #fff952" class="btn  btn-user btn-block">
+                      
+                    
                     <hr>
                   </form>
              

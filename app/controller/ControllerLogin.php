@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 use Src\Classes\ClassRender;
-use Src\Interfaces\interfaceView;
-use App\Model\ClassObra;
+use App\Model\ClassLogin;
 
-class ControllerLogin extends ClassObra{
-    
+class ControllerLogin extends ClassLogin{
+    protected $contacto;
+    protected $pass;
 
     public function entrar() {
         $render=new ClassRender();
@@ -18,8 +18,37 @@ class ControllerLogin extends ClassObra{
         
     }
     
-    public function obra($id){
-        return parent::SelectObraId($id);
+    public function recVariaveis(){
+        if(isset($_POST['contacto'])){
+            $this->contacto= filter_input(INPUT_POST, 'contacto');
+        }
+        if(isset($_POST['pass'])){
+            $this->pass= sha1(filter_input(INPUT_POST, 'pass'));
+        }    
+    }
+    
+    public function sair(){
+        session_start();
+        session_destroy();
+       
+        echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
+    }
+
+
+    public function verificar(){
+        $this->recVariaveis();
+        $dados=parent::login($this->contacto,$this->pass);
+        if($dados){
+            if(!($dados['tipo']=="Artista")){
+                session_start();
+                $_SESSION['login']=$dados;
+                echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
+            }
+        }else{
+            echo 'erro';
+            exit();
+        }
+        
     }
  
 }
