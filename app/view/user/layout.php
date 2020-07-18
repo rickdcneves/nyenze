@@ -2,6 +2,7 @@
     session_start();
     if(isset($_SESSION['login'])){
         $log=$_SESSION['login'];
+        
     }
 ?>
 <!DOCTYPE html>
@@ -79,6 +80,9 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
+                    <?php if(isset($log)):?>
+                    <li><a href=""><?php echo $log[0]['nome']?></a></li>
+                    <?php endif;?>
                     <li class="active"><a href="">Loja</a></li>
                 </ul>
             </nav>
