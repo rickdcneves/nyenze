@@ -37,7 +37,7 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                      <h1 class="h4 text-gray-900 mb-4"><img style="width: 100%" src="<?php echo DIRIMG."core-img/logo.png"?>"></h1>
+                      <h1 class="h4 text-gray-900 mb-4"><img style="width: 100%" src="<?php echo DIRIMG."core-img/logo.png"?>"><p style="color: red"><?php if(isset($_GET['msg'])){echo base64_decode($_GET['msg']); } ?></p></h1>
                   </div>
                     <form class="user" method="post" action="<?php echo DIRPAGE."login/verificar"; ?>">
                     <div class="form-group">

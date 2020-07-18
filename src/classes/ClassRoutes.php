@@ -17,7 +17,6 @@ class ClassRoutes{
             "" => "ControllerHome",
             "homepage" => "ControllerHome",
             "login" => "ControllerLogin",           
-            "sitemap" => "ControllerSiteMap",
             "404" => "Controller404",
             "artista" => "ControllerArtista",
             "obra" => "ControllerObra",

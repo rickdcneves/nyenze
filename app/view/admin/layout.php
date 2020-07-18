@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(isset($_SESSION['login'])){
+        $log=$_SESSION['login'];
+    }else{
+        echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-pt">
 
