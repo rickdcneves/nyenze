@@ -2,10 +2,10 @@
 namespace App\Controller;
 use Src\Classes\ClassRender;
 use Src\Interfaces\interfaceView;
-use App\Model\ClassUser;
+use App\Model\ClassCadastroArtista;
 use App\Model\ClassContacto;
 
-class ControllerUser extends ClassUser{
+class ControllerUser extends ClassCadastroArtista{
     
     protected $nome;
     protected $pass;
@@ -75,6 +75,9 @@ class ControllerUser extends ClassUser{
     public function cadastrarUser(){
         $this->recVariaveis();
         parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
+        if($this->tipo=="Artista"){
+            parent::cadastroArtista("", "", $this->ultimo());
+        }
         $a=new ClassContacto();
         $a->cadastroContacto("email", $this->email,self::ultimo());
         $a->cadastroContacto("telefone", $this->numero,self::ultimo());
