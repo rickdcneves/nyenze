@@ -11,7 +11,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-  <a class="nav-link" href="<?php echo DIRPAGE."home/"?>">
+  <a class="nav-link" href="<?php echo DIRPAGE."homepage/dashboard"?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -25,7 +25,9 @@
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
+    <?php if($log[0]['tipo']=="Admin"):?>
 <li class="nav-item">
+
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-user"></i>
     <span>Artista</span>
@@ -33,12 +35,16 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Informações:</h6>
-      <a class="collapse-item" href="<?php echo DIRPAGE."artista/add/"?>">Adicionar</a>
-      <a class="collapse-item" href="<?php echo DIRPAGE."artista/all/"?>">Listar</a>
-      <a class="collapse-item" href="formContactos.php">Adicionar Contactos</a>
+      
+        
+        <a class="collapse-item" href="<?php echo DIRPAGE."artista/add/"?>">Adicionar</a>
+        <a class="collapse-item" href="<?php echo DIRPAGE."artista/all/"?>">Listar</a>
+        <a class="collapse-item" href="formContactos.php">Adicionar Contactos</a>
+      
     </div>
   </div>
 </li>
+<?php endif;?>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -51,8 +57,10 @@
       <h6 class="collapse-header">Obras:</h6>
       <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar</a>
       <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar</a>
-      <a class="collapse-item" href="<?php echo DIRPAGE."categoria/add/"?>">Adicionar Categoria</a>
-      <a class="collapse-item" href="<?php echo DIRPAGE."categoria/all/"?>">Listar Categorias</a>
+      <?php if($log[0]['tipo']=="Admin"):?>
+        <a class="collapse-item" href="<?php echo DIRPAGE."categoria/add/"?>">Adicionar Categoria</a>
+        <a class="collapse-item" href="<?php echo DIRPAGE."categoria/all/"?>">Listar Categorias</a>
+      <?php endif;?>
     </div>
   </div>
 </li>
@@ -66,16 +74,24 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Vendas:</h6>
-      <a class="collapse-item" href="formSkills.php">Listar Vendas</a>
+      
+      
+      <?php if($log[0]['tipo']=="Admin"):?>
+        <a class="collapse-item" href="formSkills.php">Listar Vendas</a>
        <a class="collapse-item" href="formSkills.php">Vendas Por Confirmar</a>
       <a class="collapse-item" href="utilities-border.html">Lucro</a>
+      <?php endif;?>
+      <?php if($log[0]['tipo']=="Artista"):?>
+      <a class="collapse-item" href="formSkills.php">Vendas de Suas Obras</a>
+        <a class="collapse-item" href="utilities-border.html">Lucro Proprio</a>
+      <?php endif;?>
     </div>
   </div>
 </li>
 
 <!-- Divider -->
 <hr class="sidebar-divider">
-
+<?php if($log[0]['tipo']=="Admin"):?>
 <!-- Heading -->
 <div class="sidebar-heading">
   Definições
@@ -118,7 +134,7 @@
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
-
+<?php endif;?>
 <!-- Sidebar Toggler (Sidebar) -->
 <div class="text-center d-none d-md-inline">
   <button class="rounded-circle border-0" id="sidebarToggle"></button>
