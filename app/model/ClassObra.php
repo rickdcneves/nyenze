@@ -40,4 +40,9 @@ class ClassObra extends ClassConexao{
         return $data;       
     }
     
+    public function SelectObraArtista($id_artista){
+        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and obra.id_artista=".$id_artista)->fetchAll();
+        return $data;       
+    }
+    
 }

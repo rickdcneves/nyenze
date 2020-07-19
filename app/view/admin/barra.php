@@ -56,8 +56,8 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Obras:</h6>
         <?php if($log[0]['tipo']=="Artista"):?>
-            <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar Obra</a>
-            <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar Minhas Obras</a>
+            <a class="collapse-item" href="<?php echo DIRPAGE."obra/addObraArtista/"?>">Adicionar Obra</a>
+            <a class="collapse-item" href="<?php echo DIRPAGE."obra/allArtista/"?>">Listar Minhas Obras</a>
       
         <?php endif;?>
         <?php if($log[0]['tipo']=="Admin"):?>

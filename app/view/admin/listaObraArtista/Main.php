@@ -2,12 +2,12 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Lista dos Artistas</h1>
+          <h1 class="h3 mb-2 text-gray-800">Lista das Minhas Obras</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Lista de Obras</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Minhas Obras</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -21,7 +21,6 @@
                       <th>Quantidade Disponivel</th>
                       <th>Altura X Largura</th>
                       <th>Categoria</th>
-                      <th>Artista</th>
                       <th>Data Publicação</th>
                     </tr>
                   </thead>
@@ -34,7 +33,6 @@
                       <th>Quantidade Disponivel</th>
                       <th>Altura X Largura</th>
                       <th>Categoria</th>
-                      <th>Artista</th>
                       <th>Data Publicação</th>
                     </tr>
                   </tfoot>
@@ -42,8 +40,10 @@
                     
                         <?php
                             require_once DIRREQ."app/controller/ControllerObra.php";
+                            $aux=new \App\Controller\ControllerArtista();
+                            $id_artista_tmp=$aux->isArtista($_SESSION['login'][0]['id']);
                             $dados= new \App\Controller\ControllerObra();
-                            $data=$dados->todasObras();
+                            $data=$dados->SelectObraArtista($id_artista_tmp);
                             foreach ($data as $row) {
                                 echo "<tr><td><img src='".DIRPAGE."public/img/".$row['foto']."' style='margin-left:0% ;width: 100%; height: 200px;'/></td>";
                                 echo "<td>".$row['titulo']."</td>";
@@ -52,7 +52,6 @@
                                 echo "<td>".$row['qtd']."</td>";
                                 echo "<td>".$row['altura']." X ".$row['largura']."</td>";
                                 echo "<td>".$row['catname']."</td>";
-                                echo "<td>".$row['usname']."</td>";
                                 echo "<td>".$row['data_publicacao']."</td></tr>";
                                 
                             }

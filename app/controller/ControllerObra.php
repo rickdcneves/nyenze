@@ -5,6 +5,7 @@ use Src\Classes\ClassRender;
 use Src\Interfaces\interfaceView;
 use App\Model\ClassObra;
 use App\Controller\Upload;
+use App\Model\ClassCadastroArtista;
 
 
 class ControllerObra extends ClassObra {
@@ -40,6 +41,15 @@ class ControllerObra extends ClassObra {
         $render->setDir("obra");
         $render->renderLayout();
     }
+    
+    public function addObraArtista(){
+        $render=new ClassRender();
+        $render->setTitle("Adicionar Obra");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("obraArtista");
+        $render->renderLayout();
+    }
 
     public function all(){
         $render=new ClassRender();
@@ -47,6 +57,15 @@ class ControllerObra extends ClassObra {
         $render->setDescription("");
         $render->setKeywords("");
         $render->setDir("listaObras");
+        $render->renderLayout();
+    }
+    
+    public function allArtista(){
+        $render=new ClassRender();
+        $render->setTitle("Lista de Obras Pessoais");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("listaObraArtista");
         $render->renderLayout();
     }
     
@@ -97,6 +116,20 @@ class ControllerObra extends ClassObra {
         parent::cadastroObra($nomenovo, $this->descricao, $this->preco, $this->estado, $this->qtd, $this->nome, $this->entrega, $this->altura, $this->largura, $this->id_categoria, date('d/M/y'), $this->id_artista);
         header("location:/nyenze/obra/all");
     }
+    
+    public function registarObraArtista(){
+        include "ControllerFoto.php";
+        session_start();
+        $aux=new ClassCadastroArtista();
+        $this->id_artista=$aux->isArtista($_SESSION['login'][0]['id']);
+        $this->recVariaveis();
+        $upload = new Upload($_FILES['foto'],DIRREQ."public/img/");
+        $nomenovo=$upload->salvar();
+        parent::cadastroObra($nomenovo, $this->descricao, $this->preco, $this->estado, $this->qtd, $this->nome, $this->entrega, $this->altura, $this->largura, $this->id_categoria, date('d/M/y'), $this->id_artista);
+        header("location:/nyenze/obra/allArtista");
+    }
+    
+    
     
     public function todasObras(){
         return parent::allObras();
