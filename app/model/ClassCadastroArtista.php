@@ -37,4 +37,11 @@ class ClassCadastroArtista extends ClassUser {
             }    
     }
     
+    public function isUser($id_artista){//Retorna o id do user recebendo o id do artista
+        $data = $this->db=$this->conexaoDB()->query("SELECT id_user FROM `artista` WHERE id=".$id_artista)->fetchAll();
+            foreach ($data as $row) {
+                return $row['id'];
+            }    
+    }
+    
 }

@@ -45,4 +45,11 @@ class ClassObra extends ClassConexao{
         return $data;       
     }
     
+    public function isPreco($id){
+        $data = $this->db=$this->conexaoDB()->query("SELECT obra.preco FROM obra WHERE obra.id=".$id)->fetchAll();
+        foreach ($data as $row){
+            return $row['preco'];
+        }       
+    }
+    
 }

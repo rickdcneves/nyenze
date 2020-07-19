@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Jul-2020 às 15:05
+-- Tempo de geração: 19-Jul-2020 às 18:27
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -219,7 +219,11 @@ CREATE TABLE `venda` (
   `id_user` int(11) NOT NULL,
   `id_obra` int(11) NOT NULL,
   `data_venda` varchar(20) NOT NULL,
-  `data_estado` varchar(20) NOT NULL
+  `data_estado` varchar(20) NOT NULL,
+  `qtd` int(11) NOT NULL,
+  `subtotal` decimal(10,0) NOT NULL,
+  `total` decimal(10,0) NOT NULL,
+  `lucro` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

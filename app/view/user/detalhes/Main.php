@@ -49,7 +49,9 @@
                                 </div>
                             </div>
                             <!-- Avaiable -->
-                            <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+                            <?php if($row['qtd']>0):?>
+                                <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+                            <?php endif; ?>
                         </div>
 
                         <div class="short_overview my-5">
@@ -57,12 +59,12 @@
                         </div>
                         <?php if($row['qtd']>0):?>
                         <!-- Add to Cart Form -->
-                        <form class="cart clearfix" method="post">
+                        <form class="cart clearfix" method="post" action="<?php echo DIRPAGE."compra/confirmar?obra=".base64_encode($row['id'])."&art=".base64_encode($row['id_artista']);?>">
                             <div class="cart-btn d-flex mb-50">
                                 <p>Quantidade</p>
                                 <div class="quantity">
                                     <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                    <input type="number" class="qty-text" id="qty" step="1" min="1" max="<?php echo $row['qtd']; ?>" name="quantity" value="1">
+                                    <input type="number" class="qty-text" id="qty" step="1" min="1" max="<?php echo $row['qtd']; ?>" name="qtd" value="1">
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                 </div>
                             </div>
