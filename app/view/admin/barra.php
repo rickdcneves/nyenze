@@ -109,8 +109,8 @@
   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Administradores:</h6>
-      <a class="collapse-item" href="formObras.php">Adicionar</a>
-      <a class="collapse-item" href="register.html">Listar</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."administrador/add/"?>">Adicionar</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."administrador/all/"?>">Listar</a>
     </div>
   </div>
 </li>

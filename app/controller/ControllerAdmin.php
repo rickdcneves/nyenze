@@ -3,16 +3,16 @@
 namespace App\Controller;
 use Src\Classes\ClassRender;
 use Src\Interfaces\interfaceView;
-use App\Model\ClassCadastroArtista;
+use App\Model\ClassUser;
 use App\Model\ClassContacto;
 
-class ControllerArtista extends ClassCadastroArtista{
+class ControllerAdmin extends ClassUser{
     
     protected $nome;
     protected $pass;
     protected $genero;
     protected $dnasc;
-    protected $tipo="Artista";
+    protected $tipo="Admin";
     protected $id_morada;
     protected $descricaolocalizacao;
     protected $ibam;
@@ -24,19 +24,19 @@ class ControllerArtista extends ClassCadastroArtista{
 
     public function add(){
         $render=new ClassRender();
-        $render->setTitle("Adicionar Artista");
+        $render->setTitle("Adicionar Administrador");
         $render->setDescription("");
         $render->setKeywords("");
-        $render->setDir("artista");
+        $render->setDir("administrador");
         $render->renderLayout();
     }
     
     public function all(){
         $render=new ClassRender();
-        $render->setTitle("Lista de Artistas");
+        $render->setTitle("Lista de Administradores");
         $render->setDescription("");
         $render->setKeywords("");
-        $render->setDir("listaArtistas");
+        $render->setDir("listaAdmins");
         $render->renderLayout();
     }
     
@@ -50,12 +50,7 @@ class ControllerArtista extends ClassCadastroArtista{
         if(isset($_POST['dnasc'])){
             $this->dnasc= filter_input(INPUT_POST, 'dnasc');
         }
-        if(isset($_POST['sobre'])){
-            $this->sobre= filter_input(INPUT_POST, 'sobre');
-        }
-        if(isset($_POST['ibam'])){
-            $this->ibam= filter_input(INPUT_POST, 'ibam');
-        }        
+      
         if(isset($_POST['pass'])){
             $this->pass= filter_input(INPUT_POST, 'pass');
         }
@@ -87,15 +82,20 @@ class ControllerArtista extends ClassCadastroArtista{
         $this->recVariaveis();
 
         parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
-        parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
+        
         $a=new ClassContacto();
         $a->cadastroContacto("email", $this->email,self::ultimo());
         $a->cadastroContacto("telefone", $this->numero,self::ultimo());
-        header("location:/nyenze/artista/all");
+        header("location:/nyenze/administrador/all");
     }
     
     public function ultimo(){
         return parent::lastUser();
+    }
+    
+    public function allAdmins(){
+        return parent::listAdmins();
+        
     }
     
 

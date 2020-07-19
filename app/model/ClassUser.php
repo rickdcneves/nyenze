@@ -34,5 +34,10 @@ class ClassUser extends ClassConexao {
             return $row['ultimo'];
         }
     }
+    
+    protected function listAdmins(){
+        $data = $this->db=$this->conexaoDB()->query("SELECT user.*,contacto.*,morada.municipio,provincia.provincia FROM user,contacto,morada,provincia where contacto.tipo='email' and user.tipo='Admin' and contacto.id_user=user.id and user.id_morada=morada.id and user.id_provincia=provincia.id")->fetchAll();
+        return $data;
+    }
    
 }
