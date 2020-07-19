@@ -11,23 +11,23 @@ class ControllerCategoria extends ClassCategoria{
     protected $nome;
 
 
-    /*public function add(){
+    public function add(){
         $render=new ClassRender();
-        $render->setTitle("Adicionar Artista");
+        $render->setTitle("Adicionar Categoria");
         $render->setDescription("");
         $render->setKeywords("");
-        $render->setDir("artista");
+        $render->setDir("categoria");
         $render->renderLayout();
     }
     
     public function all(){
         $render=new ClassRender();
-        $render->setTitle("Lista de Artistas");
+        $render->setTitle("Lista de Categorias");
         $render->setDescription("");
         $render->setKeywords("");
-        $render->setDir("listaArtistas");
+        $render->setDir("listaCategorias");
         $render->renderLayout();
-    }*/
+    }
     
     public function recVariaveis(){
         if(isset($_POST['nome'])){
@@ -37,13 +37,8 @@ class ControllerCategoria extends ClassCategoria{
 
     public function cadastrar(){
         $this->recVariaveis();
-
-        /*parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
-        parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
-        $a=new ClassContacto();
-        $a->cadastroContacto("email", $this->email,self::ultimo());
-        $a->cadastroContacto("telefone", $this->numero,self::ultimo());
-        header("location:/nyenze/artista/all");*/
+        parent::cadastroCategoria($this->nome);
+        header("location:/nyenze/categoria/all");
     }
     
     public function todasCategorias(){

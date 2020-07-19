@@ -51,8 +51,8 @@
       <h6 class="collapse-header">Obras:</h6>
       <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar</a>
       <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar</a>
-      <a class="collapse-item" href="formAddArea.php">Adicionar Tipo</a>
-      <a class="collapse-item" href="formAddArea.php">Adicionar SubTipo</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."categoria/add/"?>">Adicionar Categoria</a>
+      <a class="collapse-item" href="<?php echo DIRPAGE."categoria/all/"?>">Listar Categorias</a>
     </div>
   </div>
 </li>
