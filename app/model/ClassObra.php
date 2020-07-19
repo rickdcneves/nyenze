@@ -52,4 +52,13 @@ class ClassObra extends ClassConexao{
         }       
     }
     
+    public function reduzirQtd($qtd,$id){
+        //update obra set qtd=qtd+1 WHERE id=1
+        
+        $this->db= $this->conexaoDB()->prepare("update obra set qtd=qtd-:qtd WHERE id=:id");
+        $this->db->bindParam(":id", $id);
+        $this->db->bindParam(":qtd", $qtd);
+        $this->db->execute();
+    }
+    
 }

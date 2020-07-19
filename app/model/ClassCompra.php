@@ -5,7 +5,7 @@ class ClassCompra extends ClassConexao{
     private $db;
     
     protected function registarCompra($estado,$id_artista,$id_user,$id_obra,$data_venda,$data_estado,$qtd,$subtotal,$total,$lucro){
-        $this->db= $this->conexaoDB()->prepare("insert venda obra (estado,id_artista,id_user,id_obra,data_venda,data_estado,qtd,subtotal,total,lucro) values(:estado,:id_artista,:id_user,:id_obra,:data_venda,:data_estado,:qtd,:subtotal,:total,:lucro)");
+        $this->db= $this->conexaoDB()->prepare("insert into venda (estado,id_artista,id_user,id_obra,data_venda,data_estado,qtd,subtotal,total,lucro) values(:estado,:id_artista,:id_user,:id_obra,:data_venda,:data_estado,:qtd,:subtotal,:total,:lucro)");
         $this->db->bindParam(":estado", $estado);
         $this->db->bindParam(":id_artista", $id_artista);
         $this->db->bindParam(":id_user", $id_user);
