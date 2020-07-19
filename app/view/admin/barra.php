@@ -55,12 +55,17 @@
   <div id="collapseBibliografia" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Obras:</h6>
-      <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar</a>
-      <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar</a>
-      <?php if($log[0]['tipo']=="Admin"):?>
-        <a class="collapse-item" href="<?php echo DIRPAGE."categoria/add/"?>">Adicionar Categoria</a>
-        <a class="collapse-item" href="<?php echo DIRPAGE."categoria/all/"?>">Listar Categorias</a>
-      <?php endif;?>
+        <?php if($log[0]['tipo']=="Artista"):?>
+            <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar Obra</a>
+            <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar Minhas Obras</a>
+      
+        <?php endif;?>
+        <?php if($log[0]['tipo']=="Admin"):?>
+            <a class="collapse-item" href="<?php echo DIRPAGE."obra/add/"?>">Adicionar</a>
+            <a class="collapse-item" href="<?php echo DIRPAGE."obra/all/"?>">Listar</a>
+            <a class="collapse-item" href="<?php echo DIRPAGE."categoria/add/"?>">Adicionar Categoria</a>
+            <a class="collapse-item" href="<?php echo DIRPAGE."categoria/all/"?>">Listar Categorias</a>
+        <?php endif;?>
     </div>
   </div>
 </li>
