@@ -83,7 +83,7 @@
                     <?php if(isset($log)):?>
                     <li><a href=""><?php echo $log[0]['nome']?></a></li>
                     <?php endif;?>
-                    <li class="active"><a href="">Loja</a></li>
+                    <li class="active"><a href="<?php echo DIRPAGE."homepage/obras/";?>">Loja</a></li>
                 </ul>
             </nav>
             <hr>    
@@ -93,7 +93,7 @@
                 <?php if(!isset($log)):?>
                     <a href="<?php echo DIRPAGE."login/entrar"?>" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/16/000000/login-rounded-right.png"/> Login</a>
                 <?php else:?>
-                    <a href="<?php echo DIRPAGE."compras/comprasFeitas"?>" class="search-nav"><img src="https://img.icons8.com/windows/16/000000/full-shopping-basket--v2.png"/> Compras</a>
+                    <a href="<?php echo DIRPAGE."compra/comprasFeitas"?>" class="search-nav"><img src="https://img.icons8.com/windows/16/000000/full-shopping-basket--v2.png"/> Compras</a>
                     <a href="<?php echo DIRPAGE."login/sair"?>" class="search-nav"><img src="https://img.icons8.com/pastel-glyph/16/000000/login-rounded-right.png"/> Logout</a>
                 <?php endif;?>
             </div>

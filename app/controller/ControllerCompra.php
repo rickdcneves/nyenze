@@ -53,13 +53,17 @@ class ControllerCompra extends ClassCompra{
         if(isset($_SESSION['login'])){
             $this->recVariaveis();
             $this->registarCompra($this->estado, $this->id_artista, $this->id_user, $this->id_obra, $this->data_venda, $this->data_estado, $this->qtd, $this->subtotal, $this->total, $this->lucro);
-            exit();
-            //$aux_qtd=new ClassObra();
-            //$aux_qtd->reduzirQtd($this->qtd, $this->id_obra);
+            $aux_qtd=new ClassObra();
+            $aux_qtd->reduzirQtd($this->qtd, $this->id_obra);
+            echo "<script>window.location.href='/nyenze/compra/comprasFeitas'</script>";
             
         }else{
             echo "<script>window.location.href='/nyenze/login/entrar?msg=". base64_encode("Antes de Efectuar Uma Compra Deve Fazer o Login")."'</script>";
         }
+    }
+    
+    public function comprasUser($id_user){
+        return parent::comprasFeitasUser($id_user);
     }
     
     

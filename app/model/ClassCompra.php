@@ -18,4 +18,9 @@ class ClassCompra extends ClassConexao{
         $this->db->bindParam(":lucro", $lucro);        
         $this->db->execute();
     }
+    
+    protected function comprasFeitasUser($id_user){
+        $data = $this->db=$this->conexaoDB()->query("SELECT obra.foto,obra.preco,obra.titulo,obra.entrega,venda.estado,venda.total,venda.estado,venda.data_venda,venda.qtd,lucro.def FROM lucro,obra,venda WHERE obra.id=venda.id_obra and venda.id_user=".$id_user." order by venda.data_venda desc")->fetchAll();
+        return $data;
+    }
 }
