@@ -18,6 +18,17 @@ class ControllerCompra extends ClassCompra{
     protected $subtotal;
     protected $total;
     protected $lucro;
+
+    public function comprasFeitas(){
+        $render=new ClassRender();
+        $render->setTitle("Compras Feitas");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("compra");
+        $render->renderLayoutUser();
+    }
+
+
     
     public function recVariaveis(){
         if(isset($_POST['qtd'])){
@@ -50,4 +61,6 @@ class ControllerCompra extends ClassCompra{
             echo "<script>window.location.href='/nyenze/login/entrar?msg=". base64_encode("Antes de Efectuar Uma Compra Deve Fazer o Login")."'</script>";
         }
     }
+    
+    
 }
