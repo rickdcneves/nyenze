@@ -39,12 +39,11 @@ class ControllerLogin extends ClassLogin{
         $this->recVariaveis();
         $dados=parent::login($this->contacto,$this->pass);
         if($dados){
-            if(!($dados[0]['tipo']=="Artista" || $dados[0]['tipo']=="Admin")){
-                session_start();
-                $_SESSION['login']=$dados;
-                echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
-                
-            }else{
+            session_start();
+            $_SESSION['login']=$dados;
+            if($dados[0]['tipo']=="Artista"){
+                session_abort();
+                $dados=parent::loginArtista($this->contacto,$this->pass);
                 session_start();
                 $_SESSION['login']=$dados;
                 if(!$dados[0]['pseudonimo']){
@@ -52,6 +51,10 @@ class ControllerLogin extends ClassLogin{
                 }else{
                     echo "<script>window.location.href='/nyenze/homepage/dashboard'</script>";    
                 }
+            }else if($dados[0]['tipo']=="Admin"){
+                echo "<script>window.location.href='/nyenze/homepage/dashboard'</script>";  
+            }else{
+                echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
             }
         }else{
             echo "<script>window.location.href='/nyenze/login/entrar?msg=". base64_encode("Credenciais Incorrectas")."'</script>";      
