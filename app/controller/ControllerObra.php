@@ -109,16 +109,17 @@ class ControllerObra extends ClassObra {
     }
      
     public function registarObra(){
-        include "ControllerFoto.php";
+        require_once "ControllerFoto.php";
         $this->recVariaveis();
         $upload = new Upload($_FILES['foto'],DIRREQ."public/img/");
         $nomenovo=$upload->salvar();
+        $this->id_artista=$_POST['id_artista'];
         parent::cadastroObra($nomenovo, $this->descricao, $this->preco, $this->estado, $this->qtd, $this->nome, $this->entrega, $this->altura, $this->largura, $this->id_categoria, date('d/M/y'), $this->id_artista);
         header("location:/nyenze/obra/all");
     }
     
     public function registarObraArtista(){
-        include "ControllerFoto.php";
+        require_once "ControllerFoto.php";
         session_start();
         $aux=new ClassCadastroArtista();
         $this->id_artista=$aux->isArtista($_SESSION['login'][0]['id']);

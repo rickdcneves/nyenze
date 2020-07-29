@@ -41,6 +41,11 @@ class ClassCadastroArtista extends ClassUser {
         return $data;       
     }
     
+    public function inputArtistas(){
+        $data = $this->db=$this->conexaoDB()->query("SELECT artista.id as id_artista, user.* FROM artista,user where user.id=artista.id_user order by nome asc")->fetchAll();
+        return $data;       
+    }
+    
     public function isArtista($id_user){
         $data = $this->db=$this->conexaoDB()->query("SELECT id FROM `artista` WHERE id_user=".$id_user)->fetchAll();
             foreach ($data as $row) {

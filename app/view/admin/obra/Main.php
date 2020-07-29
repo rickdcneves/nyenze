@@ -57,10 +57,10 @@
                 <?php
                     require_once DIRREQ."app/controller/ControllerArtista.php";
                     $dados= new \App\Controller\ControllerArtista();
-                    $data=$dados->allArtistas();
+                    $data=$dados->inputArtistas();
                     foreach ($data as $row) {
 
-                        echo "<option value=".$row['id'].">".$row['nome']."</option>";
+                        echo "<option value=".$row['id_artista'].">".$row['nome']."</option>";
 
                     }
 
