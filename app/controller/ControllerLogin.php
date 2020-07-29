@@ -43,10 +43,15 @@ class ControllerLogin extends ClassLogin{
                 session_start();
                 $_SESSION['login']=$dados;
                 echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
+                
             }else{
                 session_start();
                 $_SESSION['login']=$dados;
-                echo "<script>window.location.href='/nyenze/homepage/dashboard'</script>";                
+                if(!$dados[0]['pseudonimo']){
+                   echo "<script>window.location.href='/nyenze/artista/addInfo'</script>"; 
+                }else{
+                    echo "<script>window.location.href='/nyenze/homepage/dashboard'</script>";    
+                }
             }
         }else{
             echo "<script>window.location.href='/nyenze/login/entrar?msg=". base64_encode("Credenciais Incorrectas")."'</script>";      

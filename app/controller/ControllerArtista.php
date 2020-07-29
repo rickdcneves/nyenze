@@ -20,6 +20,8 @@ class ControllerArtista extends ClassCadastroArtista{
     protected $numero;
     protected $id_provincia;
     protected $email;
+    protected $pseudonimo;
+    protected $id_user;
 
 
     public function add(){
@@ -29,6 +31,15 @@ class ControllerArtista extends ClassCadastroArtista{
         $render->setKeywords("");
         $render->setDir("artista");
         $render->renderLayout();
+    }
+    
+    public function addInfo(){
+        $render=new ClassRender();
+        $render->setTitle("Adicionar Informações");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("info");
+        $render->info();
     }
     
     public function all(){
@@ -52,6 +63,9 @@ class ControllerArtista extends ClassCadastroArtista{
         }
         if(isset($_POST['sobre'])){
             $this->sobre= filter_input(INPUT_POST, 'sobre');
+        }
+        if(isset($_POST['pseudonimo'])){
+            $this->pseudonimo= filter_input(INPUT_POST, 'pseudonimo');
         }
         if(isset($_POST['ibam'])){
             $this->ibam= filter_input(INPUT_POST, 'ibam');
@@ -85,7 +99,6 @@ class ControllerArtista extends ClassCadastroArtista{
 
     public function cadastrar(){
         $this->recVariaveis();
-
         parent::cadastroUser($this->nome, $this->dnasc,sha1($this->pass),$this->tipo, $this->id_morada, $this->id_provincia, $this->descricaolocalizacao, $this->genero);
         parent::cadastroArtista($this->sobre, $this->ibam, self::ultimo());
         $a=new ClassContacto();
@@ -94,6 +107,14 @@ class ControllerArtista extends ClassCadastroArtista{
         header("location:/nyenze/artista/all");
     }
     
+    
+    public function infoArtista(){
+        $this->recVariaveis();
+        session_start();
+        $this->id_user=$_SESSION['login'][0]['id'];
+        parent::cadastroinfoArtista($this->sobre, $this->ibam,$this->pseudonimo, $this->id_user);
+        header("location:/nyenze/homepage/dashboard");
+    }    
     public function ultimo(){
         return parent::lastUser();
     }

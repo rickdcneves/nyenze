@@ -25,6 +25,17 @@ class ClassCadastroArtista extends ClassUser {
         
     }
     
+    protected function cadastroinfoArtista($sobre,$ibam,$pseudonimo,$id_user){
+        $this->db= $this->conexaoDB()->prepare("update artista set sobre=:sobre,ibam=:ibam,pseudonimo=:pseudonimo WHERE id_user=:id_user");
+        $this->db->bindParam(":sobre", $sobre);
+        $this->db->bindParam(":ibam", $ibam);
+        $this->db->bindParam(":pseudonimo", $pseudonimo);
+        $this->db->bindParam(":id_user", $id_user);   
+        $this->db->execute();
+
+        
+    }
+    
     public function allArtistas(){
         $data = $this->db=$this->conexaoDB()->query("SELECT artista.*, user.*, morada.*,provincia.*,contacto.* FROM artista,user,morada,contacto,provincia where user.id=artista.id_user and contacto.id_user=user.id and user.id_morada=morada.id and user.id_provincia=provincia.id and contacto.tipo='email' order by nome asc")->fetchAll();
         return $data;       

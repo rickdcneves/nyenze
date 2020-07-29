@@ -54,6 +54,10 @@ class ClassRender {
 
     public function login(){
         include (DIRREQ."app/view/login.php");     
+    }
+    
+    public function info(){
+        include (DIRREQ."app/view/user/info/Main.php");     
     }  
    
     
