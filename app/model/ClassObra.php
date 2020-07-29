@@ -27,21 +27,21 @@ class ClassObra extends ClassConexao{
     }
     
     public function allObras(){
-        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id")->fetchAll();
+        $data = $this->db=$this->conexaoDB()->query("SELECT artista.pseudonimo, lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id")->fetchAll();
         return $data;       
     }
     public function SelectObras($categoria){
-        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and categoria.id=".$categoria)->fetchAll();
+        $data = $this->db=$this->conexaoDB()->query("SELECT artista.pseudonimo, lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and categoria.id=".$categoria)->fetchAll();
         return $data;       
     }
     
     public function SelectObraId($id){
-        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and obra.id=".$id)->fetchAll();
+        $data = $this->db=$this->conexaoDB()->query("SELECT artista.pseudonimo, lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and obra.id=".$id)->fetchAll();
         return $data;       
     }
     
     public function SelectObraArtista($id_artista){
-        $data = $this->db=$this->conexaoDB()->query("SELECT lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and obra.id_artista=".$id_artista)->fetchAll();
+        $data = $this->db=$this->conexaoDB()->query("SELECT artista.pseudonimo, lucro.def, obra.*, categoria.nome as catname, artista.id as artista_id,user.nome as usname FROM lucro,obra,categoria,artista,user WHERE obra.id_categoria=categoria.id and obra.id_artista=artista.id and artista.id_user=user.id and obra.id_artista=".$id_artista)->fetchAll();
         return $data;       
     }
     

@@ -45,7 +45,7 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>-->
                                 </div>
                                 <div class="review">
-                                    <a href="#"><?php echo "Artista: ". $row['usname'];?></a>
+                                    <a href="#"><?php echo "Artista: ". $row['pseudonimo'];?></a>
                                 </div>
                             </div>
                             <!-- Avaiable -->
