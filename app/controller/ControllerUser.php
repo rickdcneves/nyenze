@@ -5,6 +5,7 @@ use Src\Interfaces\interfaceView;
 use App\Model\ClassCadastroArtista;
 use App\Model\ClassContacto;
 use App\Controller\ControllerEmail;
+use App\Model\ClassLogin;
 
 class ControllerUser extends ClassCadastroArtista{
     
@@ -96,7 +97,10 @@ class ControllerUser extends ClassCadastroArtista{
     }
     
     public function confirmar($user){
-        
+        $id= base64_decode($user);
+        $a=new ClassLogin();
+        $a->ativarConta($id);
+        echo "<script>window.location.href='/nyenze/login/entrar'</script>";
     }
 
         public function corpoEmailConfirmacao($nome){
@@ -104,7 +108,7 @@ class ControllerUser extends ClassCadastroArtista{
             <p>Pode ver o que temos para oferecer em https://www.nyenze.com.</p>
             <p> Para ativar a sua conta Nyenze, clique na ligação abaixo nos próximos 30 dias.</p>
             <p> ".DIRPAGE."conta/confirmar/".base64_encode($this->ultimo())."/</p>
-            <p>Se tiver dúvidas sobre a sua conta Nyenze, contacte-nos através do endereço geral@nyenze.A nossa equipa de suporte técnico irá ajudá-lo com tudo o que necessita.</p>
+            <p>Se tiver dúvidas sobre a sua conta Nyenze, contacte-nos através do endereço geral@nyenze.com. A nossa equipa de suporte técnico irá ajudá-lo com tudo o que necessita.</p>
             <p>Seja bem-vindo(a) a Nyenze.</p>
             <p>Cumprimentos</p>
             <p>Equipa da Nyenze</p>

@@ -57,7 +57,7 @@ class ControllerLogin extends ClassLogin{
                 echo "<script>window.location.href='/nyenze/homepage/obras'</script>";
             }
         }else{
-            echo "<script>window.location.href='/nyenze/login/entrar?msg=". base64_encode("Credenciais Incorrectas")."'</script>";      
+            echo "<script>window.location.href='/nyenze/login/entrar?msg=". base64_encode("Caso Já Tenha Verificado A Sua Conta Então As Credenciais Estão Incorrectas")."'</script>";      
         }
         
     }
