@@ -4,6 +4,7 @@ use Src\Classes\ClassRender;
 use Src\Interfaces\interfaceView;
 use App\Model\ClassCadastroArtista;
 use App\Model\ClassContacto;
+use App\Controller\ControllerEmail;
 
 class ControllerUser extends ClassCadastroArtista{
     
@@ -81,10 +82,32 @@ class ControllerUser extends ClassCadastroArtista{
         $a=new ClassContacto();
         $a->cadastroContacto("email", $this->email,self::ultimo());
         $a->cadastroContacto("telefone", $this->numero,self::ultimo());
+        $this->emailConfirmacao($this->email, $this->nome);
         echo "<script>window.location.href='/nyenze/login/entrar'</script>";
     }
     
     public function ultimo(){
         return parent::lastUser();
+    }
+    
+    public function emailConfirmacao($email,$nome){
+        $a=new ControllerEmail();
+        $a->envioEmail($nome, $email, "Por favor faça a confirmação da sua conta na Nyenze", $this->corpoEmailConfirmacao($nome));
+    }
+    
+    public function confirmar($user){
+        
+    }
+
+        public function corpoEmailConfirmacao($nome){
+        return "<p>Olá,".$nome.", e bem-vindo(a) aos serviços da Nyenze!</p>
+            <p>Pode ver o que temos para oferecer em https://www.nyenze.com.</p>
+            <p> Para ativar a sua conta Nyenze, clique na ligação abaixo nos próximos 30 dias.</p>
+            <p> ".DIRPAGE."conta/confirmar/".base64_encode($this->ultimo())."/</p>
+            <p>Se tiver dúvidas sobre a sua conta Nyenze, contacte-nos através do endereço geral@nyenze.A nossa equipa de suporte técnico irá ajudá-lo com tudo o que necessita.</p>
+            <p>Seja bem-vindo(a) a Nyenze.</p>
+            <p>Cumprimentos</p>
+            <p>Equipa da Nyenze</p>
+            <p>https://www.nyenze.com/</p>";
     }
 }

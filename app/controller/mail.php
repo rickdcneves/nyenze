@@ -16,9 +16,9 @@
                         </tr>
                         <tr >
                             <td>
-                                <p style="font-family: Verdana, Geneva, sans-serif; font-size: 12px; font-style: normal; padding: 50px; font-variant: normal; font-weight: 700; line-height: 26.4px; ">
-                                    Envio de email de teste
-                                </p>
+                                <div style="font-family: Verdana, Geneva, sans-serif; font-size: 12px; font-style: normal; padding: 50px; font-variant: normal; font-weight: 700; line-height: 26.4px; ">
+                                    <?php echo $corpo?>
+                                </div>
                             </td>
                         </tr>
                         <tr style="background-color: #fff952;color: #FFFFFF;">
