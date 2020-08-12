@@ -7,7 +7,9 @@
             "email": "ricardodcmeloneves@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
+    },
     "autoload":{
         "psr-4":{
             "App\\":"../app/",

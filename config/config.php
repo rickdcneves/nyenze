@@ -22,3 +22,9 @@ define('HOST', "localhost");
 define('DB', "nyenze");
 define('USER', "root");
 define('PASS', "");
+
+//Redes sociais
+define('FACEBOOK', "https://www.facebook.com/");
+define('INSTAGRAM', "https://www.instagram.com/");
+define('WHATSAPP', "https://www.whatsapp.com/");
+define('LINKEDIN', "https://www.linkedin.com/");

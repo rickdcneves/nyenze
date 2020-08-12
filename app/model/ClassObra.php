@@ -21,8 +21,7 @@ class ClassObra extends ClassConexao{
         $this->db->bindParam(":id_categoria", $id_categoria);
         $this->db->bindParam(":data_publicacao", $data_publicacao);
         $this->db->bindParam(":id_artista", $id_artista);        
-        var_dump($this->db->execute());
-        exit();
+        $this->db->execute();
 
         
     }

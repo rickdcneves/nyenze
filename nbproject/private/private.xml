@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/nyenze/app/model/ClassCompra.php</file>
-            <file>file:/C:/xampp/htdocs/nyenze/app/controller/ControllerCompra.php</file>
-            <file>file:/C:/xampp/htdocs/nyenze/app/view/user/compra/Main.php</file>
+            <file>file:/C:/xampp/htdocs/nyenze/app/model/ClassUser.php</file>
+            <file>file:/C:/xampp/htdocs/nyenze/app/controller/ControllerObra.php</file>
+            <file>file:/C:/xampp/htdocs/nyenze/app/controller/ControllerAdmin.php</file>
+            <file>file:/C:/xampp/htdocs/nyenze/app/controller/ControllerArtista.php</file>
+            <file>file:/C:/xampp/htdocs/nyenze/app/model/ClassCadastroArtista.php</file>
+            <file>file:/C:/xampp/htdocs/nyenze/app/view/admin/obra/Main.php</file>
         </group>
     </open-files>
 </project-private>
