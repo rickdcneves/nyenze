@@ -126,6 +126,7 @@ class ControllerCompra extends ClassCompra{
                         </td>
                     </tr>
                 </table>
+            <p>Após efetuar o pagamento queira por favor, enviar o comprovativo de pagamento para contabilidade@nyenze.com. acompanhado com o Nº de referência: ". $this->lastId()."</p>
             <p style='text-align: right;'>".date('d/M/Y')."</p>
             
             <p>Cumprimentos</p>
@@ -133,5 +134,7 @@ class ControllerCompra extends ClassCompra{
             <p>https://www.nyenze.com/</p>";
     }    
     
-    
+    public function lastId(){
+        return parent::ultimo();
+    }
 }

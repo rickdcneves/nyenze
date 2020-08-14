@@ -82,8 +82,8 @@
       
       
       <?php if($log[0]['tipo']=="Admin"):?>
-        <a class="collapse-item" href="formSkills.php">Listar Vendas</a>
-       <a class="collapse-item" href="formSkills.php">Vendas Por Confirmar</a>
+        <a class="collapse-item" href="<?php echo DIRPAGE."venda/lista/"?>">Listar Vendas</a>
+       <a class="collapse-item" href="<?php echo DIRPAGE."venda/listaConf/"?>">Vendas Por Confirmar</a>
       <a class="collapse-item" href="utilities-border.html">Lucro</a>
       <?php endif;?>
       <?php if($log[0]['tipo']=="Artista"):?>

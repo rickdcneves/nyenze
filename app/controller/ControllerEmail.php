@@ -28,7 +28,7 @@ class ControllerEmail{
         if (!$mail->send()){
             echo "Erro ao Enviar Email".$mail->ErrorInfo;
         }else{ 
-            echo "Email enviado Para: ".$_POST['email'] ;
+            echo "Email enviado Para: ".$email;
         }
         
     }

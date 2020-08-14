@@ -22,5 +22,21 @@ class ClassContacto extends ClassConexao {
             return $row['contacto'];
         }
     }
+    
+    public function nomeEmail($email){
+        $data = $this->db=$this->conexaoDB()->query("SELECT user.* from user,contacto WHERE contacto.id_user=user.id and contacto.contacto='".$email."'")->fetchAll();
+        foreach ($data as $row) {
+            return $row['nome'];
+        }
+    }
+
+    public function pseudoEmail ($email){
+        $data = $this->db=$this->conexaoDB()->query("SELECT artista.pseudonimo from artista,contacto,user WHERE artista.id_user=user.id and contacto.id_user=user.id and contacto.contacto='".$email."'")->fetchAll();
+        foreach ($data as $row) {
+            return $row['pseudonimo'];
+        }
+    }    
+
+//pseudoEmail    
    
 }

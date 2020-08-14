@@ -31,9 +31,7 @@ class ClassCadastroArtista extends ClassUser {
         $this->db->bindParam(":ibam", $ibam);
         $this->db->bindParam(":pseudonimo", $pseudonimo);
         $this->db->bindParam(":id_user", $id_user);   
-        $this->db->execute();
-
-        
+        $this->db->execute();  
     }
     
     public function allArtistas(){

@@ -39,7 +39,7 @@
                                     <h5><?php echo $row['titulo'];?></h5>
                                 </td>
                                 <td class="price">
-                                    <span><?php echo $row['preco']+($row['preco']*($row['def']/100));?></span>
+                                    <span><?php echo $row['preco']+($row['preco']*($row['def']/100))." Kzs";?></span>
                                 </td>
                                 <td class="qty">
                                     <div class="qty-btn d-flex">
@@ -52,7 +52,7 @@
                                     </div>
                                 </td>
                                 <td class="price">
-                                    <span><?php echo $row['total'];?></span>
+                                    <span><?php echo $row['total']." Kzs";?></span>
                                 </td>
                                 <td class="price">
                                     <span><?php echo $row['estado'];?></span>
