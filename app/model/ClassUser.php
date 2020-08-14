@@ -39,5 +39,13 @@ class ClassUser extends ClassConexao {
         $data = $this->db=$this->conexaoDB()->query("SELECT user.*,contacto.*,morada.municipio,provincia.provincia FROM user,contacto,morada,provincia where contacto.tipo='email' and user.tipo='Admin' and contacto.id_user=user.id and user.id_morada=morada.id and user.id_provincia=provincia.id")->fetchAll();
         return $data;
     }
+    
+    public function isNome($id){
+        $data = $this->db=$this->conexaoDB()->query("SELECT nome FROM user where id=".$id)->fetchAll();
+    
+        foreach ($data as $row) {
+            return $row['nome'];
+        }
+    }
    
 }

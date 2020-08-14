@@ -60,4 +60,13 @@ class ClassCadastroArtista extends ClassUser {
             }    
     }
     
+    public function isNomeArtista($id){
+        $data = $this->db=$this->conexaoDB()->query("SELECT user.nome from user,artista WHERE artista.id_user=user.id and artista.id=".$id)->fetchAll();
+            foreach ($data as $row) {
+                return $row['nome'];
+            }    
+    }
+    
+    
+    
 }

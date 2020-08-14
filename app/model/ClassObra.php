@@ -52,6 +52,13 @@ class ClassObra extends ClassConexao{
         }       
     }
     
+    public function isTitulo($id){
+        $data = $this->db=$this->conexaoDB()->query("SELECT obra.titulo FROM obra WHERE obra.id=".$id)->fetchAll();
+        foreach ($data as $row){
+            return $row['titulo'];
+        }       
+    }
+    
     public function reduzirQtd($qtd,$id){
         //update obra set qtd=qtd+1 WHERE id=1
         

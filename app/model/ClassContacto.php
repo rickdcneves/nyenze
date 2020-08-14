@@ -16,6 +16,11 @@ class ClassContacto extends ClassConexao {
        
     }
     
-
+    public function isEmail($id_user){
+        $data = $this->db=$this->conexaoDB()->query("SELECT contacto.contacto from contacto WHERE contacto.tipo='email' and contacto.id_user=".$id_user)->fetchAll();
+        foreach ($data as $row) {
+            return $row['contacto'];
+        }
+    }
    
 }

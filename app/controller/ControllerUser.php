@@ -103,7 +103,7 @@ class ControllerUser extends ClassCadastroArtista{
         echo "<script>window.location.href='/nyenze/login/entrar'</script>";
     }
 
-        public function corpoEmailConfirmacao($nome){
+    public function corpoEmailConfirmacao($nome){
         return "<p>Olá,".$nome.", e bem-vindo(a) aos serviços da Nyenze!</p>
             <p>Pode ver o que temos para oferecer em https://www.nyenze.com.</p>
             <p> Para ativar a sua conta Nyenze, clique na ligação abaixo nos próximos 30 dias.</p>
