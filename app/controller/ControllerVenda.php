@@ -26,6 +26,15 @@ class ControllerVenda extends ClassCompra{
         $render->setDir("listarVendasConf");
         $render->renderLayout();
     }    
+
+    public function encomendas(){
+        $render=new ClassRender();
+        $render->setTitle("Lista de Encomendas");
+        $render->setDescription("");
+        $render->setKeywords("");
+        $render->setDir("encomendas");
+        $render->renderLayout();
+    }    
     
     public function confirmar(){
         $emailArtista=base64_decode($_GET['email']);
@@ -45,6 +54,7 @@ class ControllerVenda extends ClassCompra{
         $obra=$b->isVenda($id_venda);
         $aux->envioEmail($nome, $emailCliente, "Mudança de estado da sua compra", $this->corpoEmailEstado($nome,$obra));
         $aux->envioEmail($nomeArt, $emailArtista, "Nova encomenda", $this->corpoEmailArtista($obra));
+        echo "<script>window.location.href='/nyenze/venda/listaConf'</script>";
     }
 
    public function corpoEmailEstado($nome,$obra){
@@ -144,6 +154,10 @@ class ControllerVenda extends ClassCompra{
     public function todasVendasNConf(){
         return parent::allVendasNConf();
     }    
+
+    public function todasEncomendasArtista($id){
+        return parent::encomendasArtista($id);
+    }
     
     public function emailCliente($id_cliente){
         $a=new ClassContacto();

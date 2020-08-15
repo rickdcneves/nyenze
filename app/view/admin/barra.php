@@ -87,8 +87,9 @@
       <a class="collapse-item" href="utilities-border.html">Lucro</a>
       <?php endif;?>
       <?php if($log[0]['tipo']=="Artista"):?>
-      <a class="collapse-item" href="formSkills.php">Vendas de Suas Obras</a>
+        <a class="collapse-item" href="formSkills.php">Vendas de Suas Obras</a>
         <a class="collapse-item" href="utilities-border.html">Lucro Proprio</a>
+        <a class="collapse-item" href="<?php echo DIRPAGE."venda/encomendas/"?>">Encomendas</a>
       <?php endif;?>
     </div>
   </div>

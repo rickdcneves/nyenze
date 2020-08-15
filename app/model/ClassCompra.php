@@ -51,4 +51,10 @@ class ClassCompra extends ClassConexao{
         $data = $this->db=$this->conexaoDB()->query("SELECT venda.qtd, obra.preco, venda.total,venda.estado, venda.id as venda, obra.id as obra, obra.titulo FROM venda,obra WHERE venda.id_obra=obra.id and venda.id=".$id)->fetchAll();
         return $data;       
     }
+    
+    public function encomendasArtista($id_artista){
+        $data = $this->db=$this->conexaoDB()->query("SELECT obra.titulo,venda.data_venda FROM obra,venda,artista,user WHERE venda.id_artista=artista.id AND venda.estado='Pago' AND artista.id_user=user.id AND obra.id=venda.id_obra AND user.id=".$id_artista)->fetchAll();
+        return $data;       
+    }    
+    
 }
